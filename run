@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+#SERVER_PASSWORD=${SERVER_PASSWORD:-"MxqQt6iKUP6igE"}
+#SERVER_KEY=${SERVER_KEY:-""}
+
+#echo "root:$SERVER_PASSWORD" | chpasswd
+#echo "ubuntu:$SERVER_PASSWORD" | chpasswd
+#echo "$SERVER_KEY" > /home/ubuntu/.ssh/authorized_keys
+#chown -R ubuntu:ubuntu /home/ubuntu/.ssh/authorized_keys
+#chmod 700 /home/ubuntu/.ssh/authorized_keys
+
+#service apache2 start
+
+#if [ ! -e "/usr/local/apache2/docker_run_lock_file" ]; then
+	#echo "127.0.0.1	admin.ugp" >> /etc/hosts
+	#echo "127.0.0.1	front.ugp" >> /etc/hosts
+	#echo "127.0.0.1	pogo.ugp" >> /etc/hosts
+	#echo "127.0.0.1	my.front.ugp" >> /etc/hosts
+	#chmod 777 -R /usr/local/apache2/htdocs/admin/app/tmp
+	#chmod 777 -R /usr/local/apache2/htdocs/admin/c/app/tmp
+	#chmod 777 -R /usr/local/apache2/htdocs/admin/c2/tmp
+	#chmod 777 -R /usr/local/apache2/htdocs/front.ugp/tmp
+#fi
+
+touch /usr/local/apache2/docker_run_lock_file
+/usr/local/apache2/bin/apachectl -e info -DFOREGROUND
