@@ -90,7 +90,7 @@ RUN sed -ri -e 's/^display_errors\s*=\s*Off/display_errors = On/g'\
     -e "\$asendmail_from = system@undergroundshirts.com" \
      /usr/local/lib/php.ini
 
-VOLUME ["/usr/local/apache2/htdocs"]
+#VOLUME ["/usr/local/apache2/htdocs"]
 
 COPY default.conf /etc/apache2/sites-available/default.conf
 
