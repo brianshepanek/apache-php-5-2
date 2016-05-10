@@ -77,8 +77,8 @@ RUN mkdir -p /var/www/html && chmod 755 /var/www/html
 RUN sed -ri -e 's/^display_errors\s*=\s*Off/display_errors = On/g'\
     -e 's/^error_reporting\s*=.*$/error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_NOTICE/g' \
     -e 's/^error_reporting\s*=.*$/error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_NOTICE/g' \
-    -e "s/post_max_size = 8M/post_max_size = 100M/g" \
-    -e "s/upload_max_filesize = 2M/upload_max_filesize = 100M/g" \
+    -e "s/post_max_size = 8M/post_max_size = 2000M/g" \
+    -e "s/upload_max_filesize = 2M/upload_max_filesize = 20000M/g" \
     -e "s/max_execution_time = 30/max_execution_time = 30000/g" \
     -e "s/extension_dir =.*/extension_dir = \"\/usr\/local\/lib\/php\/extensions\/no-debug-non-zts-20060613\"/g" \
     -e "s/memory_limit = 128M/memory_limit = 2048M/g" \
