@@ -73,6 +73,8 @@ RUN cp /usr/local/src/php-5.2.16/php.ini-dist /usr/local/lib/php.ini
 
 RUN mkdir -p /var/www/html && chmod 755 /var/www/html
 
+RUN pecl install zip
+
 #sed for PHP ini
 RUN sed -ri -e 's/^display_errors\s*=\s*Off/display_errors = On/g'\
     -e 's/^error_reporting\s*=.*$/error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_NOTICE/g' \
@@ -85,6 +87,7 @@ RUN sed -ri -e 's/^display_errors\s*=\s*Off/display_errors = On/g'\
     -e "\$aextension=php_pdo.so" \
     -e "\$aextension=php_pdo_mysql.so" \
     -e "\$aextension=mongo.so" \
+    -e "\$aextension=zip.so" \
     -e "\$aextension=php_gd2.so" \
     -e "\$asendmail_path = /usr/sbin/sendmail -t -i" \
     -e "\$asendmail_from = system@undergroundshirts.com" \
